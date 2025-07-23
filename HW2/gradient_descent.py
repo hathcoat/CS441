@@ -16,19 +16,26 @@ def gradient_descent(eta, steps=500):
     best_val = float('inf')
     best_point = None
 
+    #Do 10 trials
     for trial in range(10):
+        #Randomly assign x and y a value between -10 and 10 inclusive
         x, y = np.random.uniform(-10, 10, size=2)
 
+        #Loop for 500 steps
         for _ in range(steps):
+            #Find the partial derivatives and adjust x and y.
             grad = grad_f(x, y)
             x -= eta * grad[0]
             y -= eta * grad[1]
 
-        val = f(x, y)
+        val = f(x, y) #Find the function value.
+
+        #Update the best results if necessary
         if val < best_val:
             best_val = val
             best_point = (round(float(x), 6), round(float(y), 6))
-    return best_val, best_point
+
+    return best_val, best_point #Return best results
 
 #The experiments
 etas = [0.1, 0.01, 0.001]
