@@ -53,7 +53,7 @@ def mutate(individual, mutation_rate):
         individual[index] = new_value
 
 #Run the Genetic Algorithm
-def run_ga(pop_size=500, mutation_rate = 0.03, generations=1000):
+def run_ga(pop_size=100, mutation_rate = 0.03, generations=2000):
     population = generate_population(pop_size)
     avg_fitness_history = []
     best_fitness_history = []
@@ -124,7 +124,7 @@ def plot_fitness(avg_fitness, best_fitness):
 
 def main():
     POPULATION_SIZE = 100
-    MUTATION_RATE = 0.3
+    MUTATION_RATE = 0.03
     GENERATIONS = 2000
 
     final_population, avg_fitness, best_fitness, initial_sample, mid_sample = run_ga(
